@@ -25,6 +25,7 @@ int main(){
         printf("%d ",i);
         fflush(stdout);
     }
+    
     if(id != 0){
     printf("\n");
     }
