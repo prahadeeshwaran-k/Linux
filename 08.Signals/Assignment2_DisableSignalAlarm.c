@@ -3,31 +3,28 @@
 #include <signal.h>
 
 void ISR(int signalNo) {
-    static int count1 = 0, count2 = 0;
-
-    if(signalNo == SIGINT) { // Ctrl+C
-        count1++;
-    }
-    if(signalNo == SIGQUIT) { // <Ctrl+\>
-        count2++;
-    }
-    if(count1 >= 3) {
         printf("SIGINT default restored\n");
         signal(SIGINT, SIG_DFL);
-    }
-    if(count2 >= 4) {
+
         printf("SIGQUIT default restored\n");
         signal(SIGQUIT, SIG_DFL);
-    }
 }
 
 int main() {
     printf("Program Started\n");
     printf("PID: %d\n", getpid());
 
-    signal(SIGINT, ISR);
-    signal(SIGQUIT, ISR);
+    printf("SIGINT Ignored\n");
+    signal(SIGINT, SIG_IGN);
+    printf("SIGQUIT Ignored\n");
+    signal(SIGQUIT, SIG_IGN);
 
-    while(1) pause(); // Wait for signals
+    signal(SIGALRM, ISR);
+    alarm(10);
+    for(int i = 0 ; i<10 ; i++){
+        printf("T-%d\n",10-i);
+        sleep(1);
+    }
+
+    while(1);
 }
-
