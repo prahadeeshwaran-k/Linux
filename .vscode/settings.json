@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "SIGCHILD.C": "cpp",
+        "wait.h": "c",
+        "unistd.h": "c"
+    }
+}
