@@ -12,6 +12,11 @@ system call for the signal SIGCHLD (signal number 17).
 It tells the kernel:
 When any child terminates, don’t make it a zombie automatically clean it up (reap it).
 */
+
+// SA_NOCLDSTOP | SA_NOCLDWAIT
+/*
+which tells the kernal to
+*/
 int main()
 {
     if (fork() == 0)
