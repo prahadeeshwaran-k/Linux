@@ -6,6 +6,7 @@ void isr(int n)
 {
     printf("in isr..\n");
 }
+
 int main()
 {
     if (fork() == 0)

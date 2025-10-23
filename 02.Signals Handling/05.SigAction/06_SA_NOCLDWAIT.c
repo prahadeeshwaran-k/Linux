@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <signal.h>
+
 void isr(int n)
 {
     printf("in isr..\n");
 }
+
 /*
 The flag SA_NOCLDWAIT is used with the sigaction() 
 system call for the signal SIGCHLD (signal number 17).
@@ -17,6 +19,7 @@ When any child terminates, don’t make it a zombie automatically clean it up (r
 /*
 which tells the kernal to
 */
+
 int main()
 {
     if (fork() == 0)
