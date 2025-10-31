@@ -4,6 +4,9 @@
         "wait.h": "c",
         "unistd.h": "c",
         "text_encoding": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "types.h": "c",
+        "stdio.h": "c",
+        "msg.h": "c"
     }
 }
