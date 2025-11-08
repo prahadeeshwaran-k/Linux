@@ -20,7 +20,6 @@ int main(){
         printf("Output: %d\nInput: ",data);
         scanf("%d",&data);
         write(fd[1], &data, sizeof(int));
-
     }else{
         //printf("The Parent Process %d\n",getpid());
         printf("Input: ");
