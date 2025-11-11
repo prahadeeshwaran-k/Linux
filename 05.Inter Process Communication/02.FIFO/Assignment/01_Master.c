@@ -1,3 +1,4 @@
+//send a file name and target character in a to replace in a file .txt with the process 2
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
