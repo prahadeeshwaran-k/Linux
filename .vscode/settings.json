@@ -7,6 +7,8 @@
         "typeinfo": "c",
         "types.h": "c",
         "stdio.h": "c",
-        "msg.h": "c"
+        "msg.h": "c",
+        "GETVAL.C": "cpp",
+        "SETVAL.C": "cpp"
     }
 }
