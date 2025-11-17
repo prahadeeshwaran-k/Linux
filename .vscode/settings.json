@@ -9,6 +9,7 @@
         "stdio.h": "c",
         "msg.h": "c",
         "GETVAL.C": "cpp",
-        "SETVAL.C": "cpp"
+        "SETVAL.C": "cpp",
+        "sem.h": "c"
     }
 }
