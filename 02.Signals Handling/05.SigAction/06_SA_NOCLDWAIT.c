@@ -40,3 +40,11 @@ int main()
             ;
     }
 }
+
+/*
+| Method                                      | Description             | Avoids Zombie?  |
+| ------------------------------------------- | ----------------------- | --------------- |
+| `wait()` or `waitpid()`                     | Manually reaps child    | ✅              |
+| `signal(SIGCHLD, SIG_IGN)`                  | Ignores child status    | ✅              |
+| `sigaction(SIGCHLD, handler, SA_NOCLDWAIT)` | Kernel auto-reaps child | ✅              |
+*/
