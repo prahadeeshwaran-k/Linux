@@ -2,8 +2,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
+
 void *thread1(void *);
 void *thread2(void *);
+
 int main()
 {
     pthread_t t1, t2;

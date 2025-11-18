@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <pthread.h>
 void *thread(void *);
+
 int main()
 {
     size_t stack;
@@ -13,6 +14,10 @@ int main()
 
     stack = stack - 1000;
     pthread_attr_setstacksize(&v, stack); // set stack val into attr
+    
+    pthread_attr_getstacksize(&v, &stack); // get stack val from attr
+    printf("thread stack value : %lu\n", stack);
+
     printf("In main() process...\n");
 
     pthread_create(&t, &v, thread, 0);
@@ -21,6 +26,7 @@ int main()
     while (1)
         ;
 }
+
 void *thread(void *p)
 {
     printf("In thread process...\n");
