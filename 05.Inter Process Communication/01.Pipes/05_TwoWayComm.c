@@ -23,15 +23,7 @@ int main()
         return 1;
     }
 
-    pid = fork();
-
-    if (pid == -1)
-    {
-        perror("Fork failed");
-        return 1;
-    }
-
-    if (pid == 0)
+    if (fork() == 0)
     {
         close(p2[1]);//not going to use, so closed pipes because of unidirection. 
         close(p1[0]);
