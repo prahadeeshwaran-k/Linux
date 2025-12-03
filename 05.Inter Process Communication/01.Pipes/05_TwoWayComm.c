@@ -9,7 +9,6 @@ int main()
 {
     int p1[2];
     int p2[2];
-    pid_t pid;
 
     if (pipe(p1) == -1)
     {

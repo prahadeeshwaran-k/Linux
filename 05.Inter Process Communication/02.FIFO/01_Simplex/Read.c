@@ -7,7 +7,6 @@ int main()
     int fd;
     char str[20];
     mkfifo("fifo", 0664);
-    perror("mkfifo");
     printf("hi..\n");
     fd = open("fifo", O_RDONLY);//in there the execution is wait un-till the some other process in open the same FIFO in Write mode.
     if (fd < 0)

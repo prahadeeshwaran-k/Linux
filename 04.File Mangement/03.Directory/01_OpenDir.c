@@ -6,8 +6,6 @@ int main(int argc,char*argv[])
         printf("Usage : ./OpenDir file\n");
         return 0;
         }
-
         DIR *dp;
         dp = opendir(argv[1]);
-
 }
