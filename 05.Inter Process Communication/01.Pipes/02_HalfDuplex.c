@@ -6,6 +6,8 @@ int main()
     int fd[2];
     pipe(fd);
     printf("fd[0]=%d fd[1]=%d\n", fd[0], fd[1]);
+    
+    //PROCESS 1
     if (fork() == 0)
     {
         char s1[20], s2[20];
@@ -18,6 +20,7 @@ int main()
             sleep(1);
         }
     }
+    //PROCESS 2
     else
     {
         char a[20], b[20];
