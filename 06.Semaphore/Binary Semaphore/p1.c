@@ -9,10 +9,12 @@ int main()
     int i, id = semget(11, 3, IPC_CREAT | 0644);
     struct sembuf v;
     v.sem_num = 0; // 0th index of semaphore array.
-    v.sem_op = 0;
+    v.sem_op = 0; // it is binary semaphore.
     v.sem_flg = 0;
 
-    semop(id, &v, 1);
+    semop(id, &v, 1);//code waits here
+    //It is used to perform operations on semaphores—usually to lock, unlock, 
+    //or wait for a semaphore—allowing processes to synchronize access to shared resources.
     semctl(id, 0, SETVAL, 1);
 
     printf("entering into critical section of the code\n");
