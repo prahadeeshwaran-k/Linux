@@ -26,6 +26,7 @@ int main()
     while(1)
     {
         int result = msgrcv(msgid, &msg, sizeof(msg.message) + 1,0,0); // it returns 0 on success, -1 on failure
+        //the 4th argument 0 mtype means it reads act like FIFO;
         if (result == -1) {
             perror("msgrcv");
             break;

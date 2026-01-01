@@ -18,7 +18,7 @@ int main(int argc,char *argv[])
 		perror("stat");
 		return 0;
 	}
-	if(v1.st_ino == v2.st_ino)
+	if(v1.st_ino == v2.st_ino)// this is 
 	{
 		lstat(argv[1],&v1);
 		lstat(argv[2],&v2);

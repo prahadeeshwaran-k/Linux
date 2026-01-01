@@ -11,7 +11,8 @@ int main()
     v.sem_num = 0; // 0th index of semaphore array.
     v.sem_op = 0; // it is binary semaphore.
     v.sem_flg = 0;
-
+    
+    //Meaning of the 1 in semop(id, &v, 1). How many semaphore operations should be executed?
     semop(id, &v, 1);//code waits here
     //It is used to perform operations on semaphores—usually to lock, unlock, 
     //or wait for a semaphore—allowing processes to synchronize access to shared resources.

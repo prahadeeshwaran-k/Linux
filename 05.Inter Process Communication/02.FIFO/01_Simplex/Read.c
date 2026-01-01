@@ -9,11 +9,13 @@ int main()
     mkfifo("fifo", 0664);
     printf("hi..\n");
     fd = open("fifo", O_RDONLY);//in there the execution is wait un-till the some other process in open the same FIFO in Write mode.
+    
     if (fd < 0)
     {
         perror("open");
         return 0;
     }
+
     while (1)
     {
         int ret = read(fd, str, sizeof(str));

@@ -66,3 +66,67 @@ int lstat(const char *restrict pathname, struct stat *restrict statbuf);
 * **ctime** = metadata changed
 
 
+## **Difference Hard Link and Soft Link (Symbolic Link)** in Linux/Unix:
+
+
+### **HARD LINK**
+
+| Feature                  | Description                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------- |
+| Definition               | A hard link is **another file name** for the same inode (same physical data on disk).             |
+| Points to                | **Inode** of the original file.                                                                   |
+| File deletion impact     | Even if the original file is deleted, the data **still exists** as long as one hard link remains. |
+| Cross filesystem support | **Cannot** span across different file systems or partitions.                                      |
+| Linking directories      | **Not allowed** (to avoid loops).                                                                 |
+| Inode number             | **Same inode number** as the original file.                                                       |
+| Size                     | Appears same as the file.                                                                         |
+| Use case                 | When you want multiple file names to point to the **same content safely**.                        |
+
+Example:
+
+```bash
+ln file1 file2
+```
+
+---
+
+### **SOFT LINK (SYMBOLIC LINK)**
+
+| Feature                  | Description                                                            |
+| ------------------------ | ---------------------------------------------------------------------- |
+| Definition               | A soft link is a **shortcut** or a pointer to another file’s **path**. |
+| Points to                | **Path name** of the target file. Not the inode directly.              |
+| File deletion impact     | If original file is deleted, soft link becomes a **broken link**.      |
+| Cross filesystem support | **Can** span across different file systems.                            |
+| Linking directories      | **Allowed**.                                                           |
+| Inode number             | **Different inode** from the target file.                              |
+| Size                     | Size contains length of the path stored.                               |
+| Use case                 | Useful for creating shortcuts and navigating easily.                   |
+
+Example:
+
+```bash
+ln -s file1 link1
+```
+
+---
+
+### **Quick Summary**
+
+| Hard Link                   | Soft Link                 |
+| --------------------------- | ------------------------- |
+| Same inode                  | Different inode           |
+| Points to data              | Points to filename        |
+| Survives deletion of target | Broken if target removed  |
+| Same filesystem only        | Cross filesystem possible |
+| Cannot link directories     | Can link directories      |
+
+---
+
+Interview-Ready 3-Line Answer
+
+1. A hard link creates another name for the same file by pointing to the same inode, so even if the original file is deleted, the data remains accessible.
+
+2. A soft link (symbolic link) acts like a shortcut that stores the path of the original file, so if the target file is removed, the link breaks.
+
+Hard links cannot span filesystems or link directories, while soft links can.

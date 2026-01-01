@@ -28,6 +28,7 @@ int main()
         printf("Enter the Message = ");
         scanf(" %s", input);
         strcpy(msg.message, input);
+        //note: once we send the data in a message Queue in a mtype if we try to send on the same id with out reading it, the send is in a block state.
         int result = msgsnd(msgid, &msg, strlen(input) + 1, 0); // it returns 0 on success, -1 on failure
         printf("%d\n", result);
         msg.mtype++;
